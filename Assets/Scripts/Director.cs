@@ -59,9 +59,14 @@ public class Director : MonoBehaviour {
 				float rotacion = i.transform.rotation.eulerAngles.y;
 				suma_angulos = suma_angulos + rotacion;
 			}
+			return Mathf.RoundToInt( suma_angulos / aliens.Length);//redondeo a numero entero
+		}
+		else
+		{
+			return 0;
 		}
 
-		return Mathf.RoundToInt( suma_angulos / aliens.Length);//redondeo a numero entero
+
 
     }
 }
