@@ -9363,7 +9363,7 @@ MonoBehaviour:
   config: {fileID: 1913796660}
   director: {fileID: 1928179782}
   configPanel: {fileID: 1913796660}
-  time_a_spawnar: 5
+  time_a_spawnar: 1
 --- !u!224 &1722160085
 RectTransform:
   m_ObjectHideFlags: 0
