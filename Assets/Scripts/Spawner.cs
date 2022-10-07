@@ -11,6 +11,7 @@ public class Spawner : MonoBehaviour {
 	public Canvas prefabAlienUI;
 	public ConfigPanel config;
 	public Director director;
+	public ConfigPanel configPanel;
 
 	public float time_a_spawnar = 1.0f;
 
@@ -35,9 +36,10 @@ public class Spawner : MonoBehaviour {
 
 	void Start ()
 	{
-        spawn_alien();
-        StartCoroutine("spawnear_cada_cierto_tiempo");
 
+		spawn_rate_aliens(configPanel.rate);
+        
+		StartCoroutine("spawnear_cada_cierto_tiempo");
 	}
 
 
@@ -49,6 +51,16 @@ public class Spawner : MonoBehaviour {
         alien.speed = config.speed;
     }
 
+    /// <summary>Spawnea una cierta cantidad de aliens</summary>
+	/// /// <param>@ref int cantidad de aliens </param>
+    void spawn_rate_aliens(int cant_aliens)
+	{
+        for (int i = 0; i < cant_aliens; i++)//dependiendo cantidad en rate UI es la cantidad que isntancio por segundo
+        {
+            spawn_alien();
+        }
+    }
+
 
     /// <summary>Cada cierto tiempo spawneo cierta cantidad de aliens</summary>
     IEnumerator spawnear_cada_cierto_tiempo()
@@ -56,12 +68,8 @@ public class Spawner : MonoBehaviour {
         while (true)
         {
 			yield return new WaitForSeconds(time_a_spawnar);
-			spawn_alien();
-		
-			//for (int i = 0; i < 5; i++)
-			//{
-			//	spawn_alien();
-			//}
+			spawn_rate_aliens(configPanel.rate);
+
         }
     }
 
