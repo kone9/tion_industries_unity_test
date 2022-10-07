@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System;
 using UnityEngine.AI;
-using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
+
 
 public class Alien : MonoBehaviour {
 	public Canvas ui;
@@ -13,8 +13,10 @@ public class Alien : MonoBehaviour {
 	public float speed;
 	private NavMeshAgent agent;
 	public float gravity = 9.8f;
+   
+	public ConfigPanel config;//ref a objetos de panel
 
-	private bool puedo_iniciar_nav_mesh = false;
+    private bool puedo_iniciar_nav_mesh = false;
 
 	private void Awake()
 	{
@@ -27,8 +29,10 @@ public class Alien : MonoBehaviour {
         txtAlien = ui.GetComponentInChildren<Text>();
 		txtAlien.text = "0";
 		Reset();
+		
+		config = GameObject.Find("ConfigPanel").GetComponent<ConfigPanel>();
 
-        Invoke("fixear_navmesh_init", 0.1f);//fixeado el navmesh agent solo funciona despues de 0.1f segundos
+        Invoke("fixear_navmesh_init", 0.1f);//fixeado el navmesh agent solo funciona despues de 0.1f segundos, sino hay problemas porque se instancian
     }
 
 
@@ -61,6 +65,8 @@ public class Alien : MonoBehaviour {
 		/////////////////////////////////////////////////////////////////////////////////////////////////////
 
 		move_ariel_AI(ref target); //fixeado el navmesh agent solo funciona despues de 0.1f segundos
+		
+
 
         if (ui != null)
 		{
@@ -80,7 +86,11 @@ public class Alien : MonoBehaviour {
 
 		Vector3	new_position = new Vector3(new_target.position.x,0, new_target.position.z);
 		agent.destination = new_position;//muso hacia ese lugar con AI
-	}
+		agent.speed = config.speed;//agregado speed desde UI
+		agent.acceleration = config.speed;//agregado speed desde UI
+		print(agent.speed);
+		print(agent.acceleration);
+    }
 
 
     /// <summary> agrega gravedad en el eje Y, osea hacia el suelo </summary>

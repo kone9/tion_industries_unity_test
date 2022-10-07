@@ -23,7 +23,10 @@ public class ConfigPanel : MonoBehaviour {
 	}
 	
 	void Update () {
-		
-	}
+        speed = sliderSpeed.value;
+    }
+
+
+
 
 }
