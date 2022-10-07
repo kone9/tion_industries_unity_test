@@ -13,7 +13,7 @@ public class Spawner : MonoBehaviour {
 	public Director director;
 	public ConfigPanel configPanel;
 
-	public float time_a_spawnar = 1.0f;
+	public float time_a_spawnar = 1.0f;//cada cuanto tiempo instancio
 
 
     void ResetAlien(Alien alien)
@@ -39,7 +39,7 @@ public class Spawner : MonoBehaviour {
 
 		spawn_rate_aliens(configPanel.rate);
         
-		StartCoroutine("spawnear_cada_cierto_tiempo");
+		StartCoroutine("spawnear_cada_cierto_tiempo");//spawneo cada cierto tiempo
 	}
 
 
@@ -58,6 +58,7 @@ public class Spawner : MonoBehaviour {
         for (int i = 0; i < cant_aliens; i++)//dependiendo cantidad en rate UI es la cantidad que isntancio por segundo
         {
             spawn_alien();
+			director.aliensAlive += 1;
         }
     }
 

@@ -8,18 +8,17 @@ public class Director : MonoBehaviour {
 	public Spawner spawner;
 	public ConfigPanel config;
 
-	void Start () {
+    public int aliensAlive = 0;
+    public int hitsPerSecond = 0;
+    public float avgAngle = 0f;
+
+    void Start () {
 
 	}
 
 
 	void Update () {
-		int aliensAlive = 0;
-		int hitsPerSecond = 0;
-		float avgAngle = 0f;
-
-
-
+		
 		//Update stats
 		config.txtInfo.text =
 			$"{aliensAlive} aliens alive"
