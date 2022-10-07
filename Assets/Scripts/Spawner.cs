@@ -12,6 +12,7 @@ public class Spawner : MonoBehaviour {
 	public ConfigPanel config;
 	public Director director;
 
+	public float time_a_spawnar = 1.0f;
 
 
     void ResetAlien(Alien alien)
@@ -54,7 +55,7 @@ public class Spawner : MonoBehaviour {
 	{
         while (true)
         {
-			yield return new WaitForSeconds(1f);
+			yield return new WaitForSeconds(time_a_spawnar);
 			spawn_alien();
 		
 			//for (int i = 0; i < 5; i++)

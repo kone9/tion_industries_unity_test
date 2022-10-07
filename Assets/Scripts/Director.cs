@@ -4,12 +4,14 @@ using UnityEngine;
 using System.Linq;
 
 public class Director : MonoBehaviour {
+	
 	public Spawner spawner;
 	public ConfigPanel config;
 
 	void Start () {
 
 	}
+
 
 	void Update () {
 		int aliensAlive = 0;

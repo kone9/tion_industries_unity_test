@@ -26,13 +26,19 @@ public class ConfigPanel : MonoBehaviour {
        
     }
 
-
-	public void on_change_sliderSpeed()
+    /// <summary> Evento relacionado a cuando cambio el valor del slider</summary>
+    public void on_change_sliderSpeed()
 	{
         speed = sliderSpeed.value;
-
+        txtSpeed.text = speed.ToString("0.");
+		print(speed);
     }
 
-
+    /// <summary> Evento relacionado a cuando cambio el valor del slider</summary>
+    public void on_change_sliderRate()
+    {
+        rate = Mathf.RoundToInt(sliderRate.value);
+        txtRate.text = rate.ToString("0.");
+    }
 
 }

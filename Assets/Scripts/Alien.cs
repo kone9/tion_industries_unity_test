@@ -88,28 +88,15 @@ public class Alien : MonoBehaviour {
 		agent.destination = new_position;//muso hacia ese lugar con AI
 		agent.speed = config.speed;//agregado speed desde UI
 		agent.acceleration = config.speed;//agregado speed desde UI
-		print(agent.speed);
-		print(agent.acceleration);
     }
-
-
-    /// <summary> agrega gravedad en el eje Y, osea hacia el suelo </summary>
-    void add_gravity()
-	{
-		transform.position = new Vector3(
-			this.transform.position.x,
-             -gravity * Time.deltaTime,
-            this.transform.position.z);
-    }
-
 
     /// <summary>Esperar un un poco antes de iniciar navMesh, sino hay un bug por inicializacíon de objetos </summary>
     void fixear_navmesh_init()
-	{
-		puedo_iniciar_nav_mesh = true;
+    {
+        puedo_iniciar_nav_mesh = true;
         //GET AI CON NAVMESH
         agent = GetComponent<NavMeshAgent>();
-		agent.enabled = true;
+        agent.enabled = true;
     }
 
 
@@ -117,4 +104,17 @@ public class Alien : MonoBehaviour {
 	{
         
     }
+
+
+
+
+    /// <summary> agrega gravedad en el eje Y, osea hacia el suelo </summary>
+    void add_gravity()
+    {
+        transform.position = new Vector3(
+            this.transform.position.x,
+             -gravity * Time.deltaTime,
+            this.transform.position.z);
+    }
+
 }
