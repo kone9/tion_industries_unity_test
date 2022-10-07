@@ -63,13 +63,51 @@ public class Alien : MonoBehaviour {
 
 		move_ariel_AI(ref target); //fixeado el navmesh agent solo funciona despues de 0.1f segundos
 		
-
-
-        if (ui != null)
-		{
-			ui.transform.position = transform.position;
-		}
 	}
+
+
+
+	//FIXEO POSIICON DE UI con RAYCAST AUNQUE LE FALTA BASTANTE TRABAJo
+    void FixedUpdate()
+    {
+        // LAYER 9 TERRENO
+        int layerMask = 1 << 9;
+
+        // This would cast rays only against colliders in layer 9.
+        // But instead we want to collide against everything except layer 9. The ~ operator does this, it inverts a bitmask.
+        layerMask = ~layerMask;
+
+        RaycastHit hit;
+		// Does the ray intersect any objects excluding the player layer
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, layerMask))
+        {
+            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
+            Debug.Log("Did Hit");
+
+			//FIXEO CON RAYCAST POSICION DE TEXTO, pero le falta más trabajo
+            if (ui != null)
+            {
+                Vector3 newUiposition = transform.position;
+				//aca tendria que fixear posicion de UI
+				newUiposition.y = hit.transform.position.y;
+                ui.transform.position = newUiposition;
+
+            }
+        }
+        else
+        {
+            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 1000, Color.white);
+            Debug.Log("Did not Hit");
+            //FIXEO CON RAYCAST POSICION DE TEXTO
+            if (ui != null)
+            {
+                Vector3 newUiposition = transform.position;
+				newUiposition.y = newUiposition.y + 1;
+                ui.transform.position = newUiposition;
+
+            }
+        }
+    }
 
 
 
@@ -102,8 +140,7 @@ public class Alien : MonoBehaviour {
 	{
 		if (director == null) return;
 		director.actual_cant_hits +=1;
-		print(other.gameObject.name);
-
+		txtAlien.text = director.actual_cant_hits.ToString();
 
     }
 

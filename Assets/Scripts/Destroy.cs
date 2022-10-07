@@ -19,6 +19,8 @@ public class Destroy : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Destroy(other.gameObject.GetComponent<Alien>().ui.gameObject);
+        Destroy(other.gameObject);
         director.aliensAlive -= 1;
     }
 

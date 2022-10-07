@@ -9917,7 +9917,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 6.4, y: 30, z: 20}
+  m_Size: {x: 17.47, y: 30, z: 20}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1896703881
 MonoBehaviour:
@@ -10396,7 +10396,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
