@@ -6920,14 +6920,6 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4205111660049000, guid: 1b0c5f2ac3a16d548a9eeba96b927e60, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 3.1132011
-      objectReference: {fileID: 0}
-    - target: {fileID: 4205111660049000, guid: 1b0c5f2ac3a16d548a9eeba96b927e60, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 3.1132019
-      objectReference: {fileID: 0}
-    - target: {fileID: 4205111660049000, guid: 1b0c5f2ac3a16d548a9eeba96b927e60, type: 3}
       propertyPath: m_LocalPosition.x
       value: 140.1
       objectReference: {fileID: 0}
@@ -6954,6 +6946,18 @@ PrefabInstance:
     - target: {fileID: 4205111660049000, guid: 1b0c5f2ac3a16d548a9eeba96b927e60, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0.22936274
+      objectReference: {fileID: 0}
+    - target: {fileID: 4205111660049000, guid: 1b0c5f2ac3a16d548a9eeba96b927e60, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90.00001
+      objectReference: {fileID: 0}
+    - target: {fileID: 4205111660049000, guid: 1b0c5f2ac3a16d548a9eeba96b927e60, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4205111660049000, guid: 1b0c5f2ac3a16d548a9eeba96b927e60, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -37.855003
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b0c5f2ac3a16d548a9eeba96b927e60, type: 3}
@@ -8531,7 +8535,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1913796660}
         m_TargetAssemblyTypeName: ConfigPanel, Assembly-CSharp
-        m_MethodName: on_change_sliderSpeed
+        m_MethodName: on_change_sliderRate
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9358,7 +9362,8 @@ MonoBehaviour:
     type: 3}
   config: {fileID: 1913796660}
   director: {fileID: 1928179782}
-  time_a_spawnar: 1
+  configPanel: {fileID: 1913796660}
+  time_a_spawnar: 5
 --- !u!224 &1722160085
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9877,6 +9882,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1896703879}
   - component: {fileID: 1896703880}
+  - component: {fileID: 1896703881}
   m_Layer: 0
   m_Name: Finish
   m_TagString: Finish_position
@@ -9913,6 +9919,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 6.4, y: 30, z: 20}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1896703881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1896703878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0899661f5402df4458db68bbeee9cecc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  director: {fileID: 1928179782}
 --- !u!4 &1897482268 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4205111660049000, guid: 1b0c5f2ac3a16d548a9eeba96b927e60,
@@ -10238,6 +10257,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawner: {fileID: 1722160084}
   config: {fileID: 1913796660}
+  aliensAlive: 0
+  hitsPerSecond: 0
+  avgAngle: 0
+  actual_cant_hits: 0
 --- !u!4 &1928179783
 Transform:
   m_ObjectHideFlags: 0

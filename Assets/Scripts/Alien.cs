@@ -1,8 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
-using System;
 using UnityEngine.AI;
 
 
@@ -13,9 +10,8 @@ public class Alien : MonoBehaviour {
 	public float speed;
 	private NavMeshAgent agent;
 	public float gravity = 9.8f;
-   
 	public ConfigPanel config;//ref a objetos de panel
-
+	public Director director;
     private bool puedo_iniciar_nav_mesh = false;
 
 	private void Awake()
@@ -31,6 +27,7 @@ public class Alien : MonoBehaviour {
 		Reset();
 		
 		config = GameObject.Find("ConfigPanel").GetComponent<ConfigPanel>();
+        director = GameObject.Find("Director").GetComponent<Director>();
 
         Invoke("fixear_navmesh_init", 0.1f);//fixeado el navmesh agent solo funciona despues de 0.1f segundos, sino hay problemas porque se instancian
     }
@@ -100,16 +97,20 @@ public class Alien : MonoBehaviour {
     }
 
 
+	//para determinar cantidad de colisiones
 	private void OnTriggerEnter(Collider other)
 	{
-        
+		if (director == null) return;
+		director.actual_cant_hits +=1;
+
+
     }
 
 
 
 
-    /// <summary> agrega gravedad en el eje Y, osea hacia el suelo </summary>
-    void add_gravity()
+	/// <summary> agrega gravedad en el eje Y, osea hacia el suelo </summary>
+	void add_gravity()
     {
         transform.position = new Vector3(
             this.transform.position.x,

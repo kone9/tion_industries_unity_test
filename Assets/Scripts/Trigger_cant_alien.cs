@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Destroy : MonoBehaviour
+public class Trigger_cant_alien : MonoBehaviour
 {
     public Director director;
-    // Start is called before the first frame update
+   
+
     void Start()
     {
-        
+        director = GameObject.Find("Director").GetComponent<Director>();
     }
 
     // Update is called once per frame
@@ -19,7 +20,8 @@ public class Destroy : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        director.aliensAlive -= 1;
-    }
+        if (director == null) return;
+        director.actual_cant_hits += 1;
 
+    }
 }

@@ -31,7 +31,6 @@ public class ConfigPanel : MonoBehaviour {
 	{
         speed = sliderSpeed.value;
         txtSpeed.text = speed.ToString("0.");
-		print(speed);
     }
 
     /// <summary> Evento relacionado a cuando cambio el valor del slider</summary>

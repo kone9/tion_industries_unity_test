@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Fire
   - Finish_position
+  - alien
   layers:
   - Default
   - TransparentFX
