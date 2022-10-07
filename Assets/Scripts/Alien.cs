@@ -97,11 +97,12 @@ public class Alien : MonoBehaviour {
     }
 
 
-	//para determinar cantidad de colisiones
-	private void OnTriggerEnter(Collider other)
+    //para determinar cantidad de colisiones con bichos, tengo problemas con los canales de colisiones en Unity, no recuerdo como usarlos y como es un detalle pequeño dejo el comentario aqui
+    private void OnTriggerEnter(Collider other)
 	{
 		if (director == null) return;
 		director.actual_cant_hits +=1;
+		print(other.gameObject.name);
 
 
     }

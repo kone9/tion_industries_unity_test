@@ -302,7 +302,7 @@ GameObject:
   - component: {fileID: 52690263391161049}
   m_Layer: 10
   m_Name: Alien
-  m_TagString: Untagged
+  m_TagString: Aliens
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -363,6 +363,7 @@ MonoBehaviour:
   speed: 0
   gravity: 9.8
   config: {fileID: 0}
+  director: {fileID: 0}
 --- !u!143 &143435567540780580
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1167,7 +1168,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8009460323143676872}
   - component: {fileID: 7818082418217792460}
-  - component: {fileID: 4311866124494820858}
   m_Layer: 0
   m_Name: trigger_cant_alien
   m_TagString: Untagged
@@ -1203,15 +1203,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.7, y: 2, z: 0.7}
   m_Center: {x: 0, y: 1.04, z: 0}
---- !u!114 &4311866124494820858
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6755627928501395602}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c654882d257c87541afa3f948fa2be3d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
